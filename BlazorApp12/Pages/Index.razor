@@ -7,15 +7,25 @@
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?"  weatherForecast=@weatherForecast />
+<SurveyPrompt @ref="surveyPrompt" Title="How is Blazor working for you?"  weatherForecast=@weatherForecast />
+  <button class="btn btn-primary" @onclick="Clickhere">Click here</button>
+  @if (@message!=string.Empty)
+  {
+     <b>@message</b> 
+  }
 
 @code
 {
     WeatherForecast weatherForecast = new WeatherForecast();
-
+    SurveyPrompt surveyPrompt;
+    public string message;
     protected override async Task OnInitializedAsync()
     {
         weatherForecast.Summary = "hello Summary";
     }
 
+    public void Clickhere()
+    {
+        message = surveyPrompt.DisplayName();
+    }
 }

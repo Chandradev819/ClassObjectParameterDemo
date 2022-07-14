@@ -10,7 +10,11 @@
     and tell us what you think.
 
    <b> @weatherForecast.Summary</b>
+
+ @*  <button class="btn btn-primary" @onclick="Clickhere">Click here</button>*@
+
 </div>
+
 
 @code {
     // Demonstrates how a parent component can supply parameters
@@ -23,6 +27,9 @@
     [Parameter]
     public WeatherForecast weatherForecast { get; set; }
 
-    
+    public string DisplayName()
+    {
+        return "Chandradev";
+    }
 
 }
